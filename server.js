@@ -8,7 +8,31 @@ var apiRoutes         = require('./routes/api.js');
 var fccTestingRoutes  = require('./routes/fcctesting.js');
 var runner            = require('./test-runner');
 
+const config = require('./utils/config');
+const mongoose= require('mongoose');
+const helmet = require("helmet");
+
 var app = express();
+
+console.log('connecting to DB URI');
+
+const serverConnected = async() => {
+    try {
+        await mongoose.connect(config.MONGODB_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true,
+            useFindAndModify: false
+        });
+        console.log('connected to mongo DataBase');
+    } catch (error) {
+        console.log('error connection to MongoDB:', error.message);
+    }
+};
+
+serverConnected();
+app.use(helmet());
+
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
@@ -36,21 +60,21 @@ app.use(function(req, res, next) {
     .send('Not Found');
 });
 
-//Start our server and tests!
-app.listen(process.env.PORT || 3000, function () {
-  console.log("Listening on port " + process.env.PORT);
-  if(process.env.NODE_ENV==='test') {
-    console.log('Running Tests...');
-    setTimeout(function () {
-      try {
-        runner.run();
-      } catch(e) {
-        var error = e;
-          console.log('Tests are not valid:');
-          console.log(error);
-      }
-    }, 1500);
-  }
+//Start your server and tests!
+app.listen(config.PORT || 3000, function () {
+    console.log("Listening on port " + config.PORT+", "+config.NODE_ENV+" mode");
+    if (config.NODE_ENV === 'test') {
+        console.log('Running Tests...');
+        setTimeout(function () {
+            try {
+                runner.run();
+            } catch (e) {
+                var error = e;
+                console.log('Tests are not valid:');
+                console.log(error);
+            }
+        }, 3500);
+    }
 });
 
 module.exports = app; //for unit/functional testing
