@@ -3,6 +3,8 @@
 
 Project Personal Library
 
+[![Run on Repl.it](https://repl.it/badge/github/shartrooper/shartrooper-project-library)](https://repl.it/github/shartrooper/shartrooper-project-library)
+
 1) Copy `- Copy.env` file content into `.env`, then set MONGODB_URI to your mongo connection string.
 
 2) Add your MongoDB connection string to .env without quotes as db. Don't replace `<dbname>`, only add your user's password. 
