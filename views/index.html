@@ -59,10 +59,14 @@
       </form>
       <div id='display'></div>          
       <div id='bookDetail' class='border'>
-        <p id='detailTitle'>Select a book to see it's details and comments</p>
+        <p id='detailTitle'>Select a book to see its details and comments</p>
         <ol id='detailComments'></ol>
       </div>
-      <button id='deleteAllBooks'>Delete all books...</button>
+      <!--<button id='deleteAllBooks'>Delete all books...</button>-->
+      <form id="deleteBookForm" class="border">
+        <button type="submit" value="Submit" id="deleteAllBooks">Delete all books...</button>
+      </form>
+      <div id='deletedAllMessage'></div>
     </div>
     <hr style='margin: 50px'>
 

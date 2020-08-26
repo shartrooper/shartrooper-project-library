@@ -1,6 +1,6 @@
 {
 	"name": "my-hyperdev-app",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"description": "My Project Library",
 	"main": "server.js",
 	"scripts": {
@@ -19,6 +19,7 @@
 		"mocha": "^3.2.0",
 		"mongodb": "^2.2.16",
 		"mongoose": "^5.10.0",
+		"nocache": "^2.1.0",
 		"nodemon": "^2.0.4",
 		"zombie": "^5.0.5"
 	},

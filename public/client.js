@@ -58,7 +58,7 @@ $( document ).ready(function() {
     });
   });
   
-  $('#newBook').click(function() {
+  $('#newBook').click(function(event) {
     $.ajax({
       url: '/api/books',
       type: 'post',

@@ -13,16 +13,20 @@ const URIregex=/<dbname>/i;
 
 const DBCollectionName='my_library';
 const testDBCollectionName='test_library';
-
+let selectedDB='';
 
 if (process.env.NODE_ENV === 'test') {
   MONGODB_URI = process.env.MONGODB_URI.replace(URIregex,testDBCollectionName);
+  selectedDB=testDBCollectionName;
 }
-
-MONGODB_URI= process.env.MONGODB_URI.replace(URIregex,DBCollectionName);
+else{
+  MONGODB_URI= process.env.MONGODB_URI.replace(URIregex,DBCollectionName);
+  selectedDB=DBCollectionName;
+}
 
 module.exports = {
   MONGODB_URI,
   PORT,
-  NODE_ENV
+  NODE_ENV,
+  selectedDB
 };

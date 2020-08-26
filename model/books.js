@@ -2,10 +2,11 @@ const mongoose = require('mongoose');
 
 const bookSchema = mongoose.Schema
 ({
-    
+    title:{type:String, required: true},
+    comments:[String],
 });
 
-issueSchema.set('toJSON', {
+bookSchema.set('toJSON', {
 transform: (document, returnedObject) => {
 //returnedObject.id = returnedObject._id.toString();
 //delete returnedObject._id;
