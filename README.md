@@ -8,7 +8,7 @@ Project Personal Library
 2) Add your MongoDB connection string to .env without quotes as db. Don't replace `<dbname>`, only add your user's password. 
 `example: mongodb+srv://userA:1235@mongomarko-gzrof.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority`.
 
-3) <dbname> is edited in `utils\config.js`
+3) `<dbname>` is edited in `utils\config.js`
 
 4) `npm start` for production, test run included. 
 
